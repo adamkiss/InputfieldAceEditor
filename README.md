@@ -1,4 +1,5 @@
-# Ace Editor v0.0
+Ace Editor v0.01
+================
 
 ## What is this?
 
@@ -8,12 +9,11 @@ Better ProcessWire text editor for developers and at least 'a little' tech savvy
 
 ### Planned for v1.0
 
+* Support for multiple fields
+* iA writer-like design
 * HTML Support
 * Textile support
 * Markdown suport
-* HTML+Tags support
-* Textile+Tags support
-* Markdown+Tags support
 
 ### Planned for v2.0
 
@@ -24,6 +24,9 @@ Better ProcessWire text editor for developers and at least 'a little' tech savvy
 
 ### Planned for v3.0
 
+* HTML+Tags support
+* Textile+Tags support
+* Markdown+Tags support
 * Automatic mode detection
 * Toolbar with basic tags (really)
 * Help inline
