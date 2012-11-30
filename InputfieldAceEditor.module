@@ -5,6 +5,7 @@
  */
 class InputfieldAceEditor extends InputfieldTextarea {
 
+	private $path = false;
 	protected $defaults = array(
 		'mode'=>'html'
 	);
@@ -13,21 +14,21 @@ class InputfieldAceEditor extends InputfieldTextarea {
 		return array(
 			'title' => 'Ace Editor',
 			'version' => 001,
-			'summary' => 'Better ProcessWire text editor for developers and at least 'a little' tech savvy clients',
+			'summary' => 'Better ProcessWire text editor for developers and at least ‘a little’ tech savvy clients',
 			'permanent' => true, 
 			);
 	}
 
 	public function init() {
+		// set path
+		$this->path = $this->config->urls->InputfieldAceEditor.'ace/';
 		foreach($this->defaults as $key => $value) $this->set($key, $value); 
 		parent::init();
 	}
 
 	public function ___render() {
 
-		// $this->config->scripts->add(
-		// 	$this->config->urls->InputfieldTinyMCE . "tinymce-" . self::TinyMCEVersion . "/tiny_mce.js"
-		// );
+		$this->config->scripts->add($this->path . "ace.js");
 
 		// $config = $this->defaults;
 
