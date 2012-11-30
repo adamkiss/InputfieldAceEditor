@@ -2,7 +2,7 @@
 
 ## What is this?
 
-Better text editor for developers and at least 'a little' tech savvy clients.
+Better ProcessWire text editor for developers and at least 'a little' tech savvy clients.
 
 ## Roadmap (future features)
 
