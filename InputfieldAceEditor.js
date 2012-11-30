@@ -1,18 +1,34 @@
+// init+run
 $(document).ready(function(){
 
+  //iterate over ace fields
+  if (config.InputfieldAceEditor){
+    $.each(config.InputfieldAceEditor, function(i, el){
+      var ace_id = duplicate(el);
+      setup(ace_id);
+    });
+  }
+});
+
+// duplicate textarea => ACE div
+function duplicate(id){
   // create our div copy of textarea for ACE
   $textarea =
-    $('#Inputfield_body')
+    $('#'+id)
       .hide();
-  $pre =
+  $ace =
     $('<div/>')
-      .attr('id', 'Inputfield_body_pre')
-      .data('for','#Inputfield_body')
+      .attr('id', id+'_ace')
+      .data('for', '#'+id)
       .insertAfter($textarea)
-      .text($textarea.val());
+      .text($textarea.val()); 
+  return id+'_ace'; 
+}
 
+// setup ace
+function setup(id){
   // create editor
-  var editor = ace.edit("Inputfield_body_pre");  
+  var editor = ace.edit(id);  
 
   // add hook 
   // before any save occurs, put content back into textarea
@@ -23,4 +39,4 @@ $(document).ready(function(){
   // set settings (whoa!)
   editor.setTheme("ace/theme/twilight");
   editor.getSession().setMode("ace/mode/html");
-});
+}

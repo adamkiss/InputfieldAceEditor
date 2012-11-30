@@ -22,6 +22,7 @@ class InputfieldAceEditor extends InputfieldTextarea {
 	public function init() {
 		// set path
 		$this->path = $this->config->urls->InputfieldAceEditor.'ace/';
+		// set config from defaults
 		foreach($this->defaults as $key => $value) $this->set($key, $value); 
 		parent::init();
 	}
@@ -29,6 +30,15 @@ class InputfieldAceEditor extends InputfieldTextarea {
 	public function ___render() {
 
 		$this->config->scripts->add($this->path . "ace.js");
+
+		// add this field array of fields using ace
+		$ace_fields = $this->config->js($this->className());
+		if (!is_null($ace_fields)){
+			$ace_fields[] = $this->attr('id');
+		}else{
+			$ace_fields = array($this->attr('id'));
+		}
+		$this->config->js($this->className(), $ace_fields);
 
 		// $config = $this->defaults;
 

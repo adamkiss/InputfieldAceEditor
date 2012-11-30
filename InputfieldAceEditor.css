@@ -1,4 +1,4 @@
-#Inputfield_body_pre { 
+.ui-widget-content .ace_editor { 
     margin: 0;
     position: relative;
     height: 200px;
