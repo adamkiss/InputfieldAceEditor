@@ -1,5 +1,9 @@
-Ace Editor v0.6
+[DISCONTINUED] Ace Editor v0.6
 ================
+
+## THIS PLUGIN IS ON HOLD
+
+**Due to inability to properly style ACE Editor without crazy-huge amount of hacks to increase line-height etc., this plugin is on hold, until ACE gets little more mature**
 
 ## What is this?
 
