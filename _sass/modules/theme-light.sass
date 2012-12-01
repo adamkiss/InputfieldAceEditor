@@ -1,0 +1,53 @@
+// 
+// Theme: light
+// ---
+// Color settings related to light theme
+//
+// Note: Xl = light color, where X = b-background, t-text, p-primary, s-secondary
+.light.ace-editor-position-wrapper
+  background: c(bl,1)
+  .ace_marker-layer
+    box-shadow: inset 0 2px 5px c(bl,1), inset 0 -2px 5px c(bl,1)
+
+.ace-pw-light
+  // basic typography
+  .ace_line
+    color: c(tl,1)
+
+  .ace_heading
+    color: c(tl, .8)
+    &.ace_2
+      color: c(pl, .7)
+
+  .ace_bold, .ace_emphasis
+    color: c(tl, .9)
+
+  .ace_modifier
+    color: c(pl,.7)
+
+  .ace_list
+    color: red
+
+  // invisibles & details
+  .ace_invisible
+    color: c(tl,.2)
+
+  .ace_fold
+    background: c(pl, 1)
+
+  .ace_gutter
+    color: c(bl, 1)
+    background: transparent
+
+  .ace_cursor
+    border-left: 3px solid #1bc3fb
+
+  // selection
+  .ace_marker-layer .ace_selection
+    background: c(pl,.15)
+
+  &.focus-mode
+    .ace_line_group .ace_line
+      opacity: .7
+    .ace_line_group_active .ace_line
+      opacity: 1

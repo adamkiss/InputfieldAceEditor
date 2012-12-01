@@ -1,0 +1,27 @@
+// 
+// Variables
+// ---
+// Variable definitions used in ACE Editor
+//
+
+// Normal size
+$normal-font-size: 16px
+$normal-base-line: 7px
+$normal-line-height: 28px
+
+
+// Light Theme
+$light-background-color: #f6f6f6
+$light-text-color: #373C41
+$light-primary-color: #107ABE
+
+// Superawesome color function
+@function c($color_name, $alpha)
+  $return_color_value: red
+  @if $color_name == tl
+    $return_color_value: transparentize($light-text-color, 1-$alpha)
+  @else if $color_name == bl
+    $return_color_value: transparentize($light-background-color, 1-$alpha)
+  @else if $color_name == pl
+    $return_color_value: transparentize($light-primary-color, 1-$alpha)
+  @return $return_color_value
