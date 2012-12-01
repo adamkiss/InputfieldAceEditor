@@ -1,33 +1,36 @@
 @font-face {
-    font-family: 'LiberationMono';
-    src: url('fonts/LiberationMono-Regular-webfont.woff');
+    font-family: 'LuxiMonoRegular';
+    src: url('fonts/luximr-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
 }
 
 @font-face {
-    font-family: 'LiberationMono';
-    src: url('fonts/LiberationMono-Italic-webfont.woff');
+    font-family: 'LuxiMonoOblique';
+    src: url('fonts/luximri-webfont.woff') format('woff');
     font-weight: normal;
-    font-style: italic;
-
-}
-
-@font-face {
-    font-family: 'LiberationMono';
-    src: url('fonts/LiberationMono-Bold-webfont.woff');
-    font-weight: bold;
     font-style: normal;
 
 }
 
 @font-face {
-    font-family: 'LiberationMono';
-    src: url('fonts/LiberationMono-BoldItalic-webfont.woff');
-    font-weight: bold;
-    font-style: italic;
+    font-family: 'LuxiMonoBold';
+    src: url('fonts/luximb-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
 }
+
+@font-face {
+    font-family: 'LuxiMonoBoldOblique';
+    src: url('fonts/luximbi-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
 
 .ui-widget-content .ace_editor { 
     position: relative;
@@ -36,7 +39,7 @@
 }
 
 .hack_ace_measure_node, .ace_line {
-  font: 14px/26px 'LiberationMono';
+  font: 16px/28px 'LuxiMonoRegular';
 }
 
 /*.ui-widget-content .ace_content {
@@ -108,7 +111,7 @@ background-color: rgba(0, 0, 0, 0.071)
 border: 1px solid #B5D5FF
 }
 .ace-pw .ace_heading {
-font-weight: bold;
+font-family: 'LuxiMonoBold';
 }
 .ace-pw .ace_constant.ace_language,
 .ace-pw .ace_keyword,

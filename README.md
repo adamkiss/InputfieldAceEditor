@@ -1,4 +1,4 @@
-ACE Editor v0.6
+ACE Editor v0.7.1
 ===============
 
 ## What is this?
@@ -19,6 +19,7 @@ Better ProcessWire text editor for developers and at least 'a little' tech savvy
 * find the *I won't pull my hair* hack to implement custom font-size / line-height
 * I added custom actvi line highlighting
 * code clean up
+* v0.7.1 – Replaced Liberation with Luxi, increased font size
 
 ### ~> v0.6
 
