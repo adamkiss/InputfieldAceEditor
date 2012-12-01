@@ -1,0 +1,1 @@
+ace.define("ace/theme/pw-light",["require","exports","module","ace/lib/dom"],function(e,t,n){t.isDark=!1,t.cssClass="ace-pw-light",t.cssText="";var r=e("../lib/dom");r.importCssString(t.cssText,t.cssClass)})

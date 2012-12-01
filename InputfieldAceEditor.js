@@ -1,3 +1,5 @@
+var _line_height = 28;
+
 // init+run
 $(document).ready(function(){
 
@@ -18,11 +20,13 @@ function duplicate(id){
   $textarea =
     $('#'+id)
       .hide();
+  $acetools =
+    $textarea.siblings('.ace-editor-tools');
   $ace =
     $('<div/>')
       .attr('id', id+'_ace')
       .data('for', '#'+id)
-      .insertAfter($textarea)
+      .insertAfter($acetools)
       .text($textarea.val()); 
   return id+'_ace'; 
 }
@@ -37,14 +41,15 @@ function setup(id){
 
   // SETTINGS
   // configurable
-  editor.getSession().setMode("ace/mode/"+config[id].mode);
+    editor.getSession().setMode("ace/mode/"+config[id].mode);
+    $editor
+      .addClass('setting-size-normal')
+      .height(config[id].rows * _line_height)
+    editor.setTheme("ace/theme/pw-light");
 
   // non-configurable
     // add class to hack custom font/size/line-height
     $measure_node.addClass('hack_ace_measure_node');
-
-    // set theme
-    editor.setTheme("ace/theme/pw");
 
     // wrapping
     editor.getSession().setUseWrapMode(true);
@@ -54,6 +59,8 @@ function setup(id){
     editor.setShowPrintMargin(false);
     editor.setShowInvisibles(true);
     editor.renderer.setShowGutter(true);
+    editor.setSelectionStyle('text');
+    editor.setShowFoldWidgets(true);
     editor.setHighlightActiveLine(false);
 
   // HOOKS
@@ -63,11 +70,28 @@ function setup(id){
   });
 
   editor.on('changeSelection', function(e){
-    $('.ace_line_group', $editor)
-      .removeClass('ace_line_group_active')
-    .eq(editor.selection.getCursor().row)
-      .addClass('ace_line_group_active');
+    var active_line = getActiveLineIndex(editor);
+    setActiveLine($editor, active_line);
   });
 
   return editor;
+}
+
+function getActiveLineIndex(editor){
+  return editor.getCursorPosition().row - editor.getFirstVisibleRow();
+}
+
+function setActiveLine($editor, index){
+  $('.ace_line_group', $editor)
+    .removeClass('ace_line_group_active')
+  .eq(index)
+    .addClass('ace_line_group_active');
+}
+
+function setActiveGutterLine($editor, index){
+    // gutters were turned off
+    $('.ace_gutter-cell', $editor)
+      .removeClass('ace_line_gutter_active')
+    .eq(index)
+      .addClass('ace_line_gutter_active');
 }

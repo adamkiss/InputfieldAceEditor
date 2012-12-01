@@ -47,11 +47,12 @@ class InputfieldAceEditor extends InputfieldTextarea {
 
 		// set options of this field
 		$field_config = array(
-			'mode' => $this->get('mode')
+			'mode' => $this->get('mode'),
+			'rows' => $this->get('rows')
 		);
 		$this->config->js($this->attr('id'), $field_config);
 
-		return parent::___render();
+		return $this->return_html(parent::___render());
 	}
 
 	public function setAttribute($key, $value) {
@@ -81,5 +82,17 @@ class InputfieldAceEditor extends InputfieldTextarea {
 
 		$inputfields->append($wrapper);
 		return $inputfields; 
+	}
+
+	private function return_html($textarea) {
+		return <<<HTML
+	<div class="ace-editor-position-wrapper light">
+		<div class="ace-editor-design-wrapper">
+			{$textarea}
+			<div class="ace-editor-tools"></div>
+			<!-- ace editor append here -->
+		</div>
+	</div>
+HTML;
 	}
 }
