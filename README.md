@@ -1,13 +1,31 @@
-[DISCONTINUED] Ace Editor v0.6
-================
-
-## THIS PLUGIN IS ON HOLD
-
-**Due to inability to properly style ACE Editor without crazy-huge amount of hacks to increase line-height etc., this plugin is on hold, until ACE gets little more mature**
+ACE Editor v0.6
+===============
 
 ## What is this?
 
 Better ProcessWire text editor for developers and at least 'a little' tech savvy clients.
+
+## How to use
+
+1. Install
+2. Set your HTML/Textile/Markdown fields to use this Inputfield
+3. Set correct mode to each of your fields
+4. Profit
+
+## Changelog
+
+### v0.7
+
+* find the *I won't pull my hair* hack to implement custom font-size / line-height
+* I added custom actvi line highlighting
+* code clean up
+
+### ~> v0.6
+
+* Basic ACE implementation
+* Liberation sans font
+* Textarea callback
+* This Inputfield is now configurable
 
 ## Roadmap (future features)
 
@@ -17,17 +35,13 @@ Better ProcessWire text editor for developers and at least 'a little' tech savvy
 * ~~HTML Support~~ – done in **v0.6**
 * ~~Textile support~~ – done in **v0.6**
 * ~~Markdown suport~~ – done in **v0.6**
-* iA writer-like design
-** for HTML
-** Textile
-** Markdown
-
-### Planned for v2.0
-
-* 'Theming'
-** Dark/light selection
-** Basic font selection
-** Font size selection
+* ~~support for custom font-sizes~~ – done in **v0.7**
+* Nice light color scheme/code formatting for writers
+	* for HTML
+	* Textile
+	* Markdown
+* proper sizing
+* iA writer's blue cursor :)
 
 ### Planned for v3.0
 
