@@ -46,7 +46,7 @@ function setup(id){
   editor.setTheme("ace/theme/xcode");
   editor.setShowPrintMargin(false);
   editor.setShowInvisibles(true);
-  editor.setFontSize('18px');
+  editor.setFontSize('14px');
   editor.renderer.setShowGutter(false);
   editor.getSession().setUseWrapMode(true);
   editor.getSession().setWrapLimitRange(null);

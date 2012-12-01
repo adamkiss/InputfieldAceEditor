@@ -33,6 +33,17 @@
     position: relative;
     height: 200px;
 }
+
+.ui-widget-content .ace_content {
+	position: relative;
+  width: 100% !important;
+	margin: 0 -40px;
+	padding: 0 40px;
+
+  font-family: 'LiberationMono';
+  line-height: 2;
+}
+
 /*.ui-widget-content .ace_scroller {
   position: relative;
   padding: 0 40px;
