@@ -3,9 +3,11 @@ $(document).ready(function(){
 
   //iterate over ace fields
   if (config.InputfieldAceEditor){
+    var editors = [];
+
     $.each(config.InputfieldAceEditor, function(i, el){
-      var ace_id = duplicate(el);
-      setup(ace_id);
+      duplicate(el);
+      editors[el] = setup(el);
     });
   }
 });
@@ -27,16 +29,27 @@ function duplicate(id){
 
 // setup ace
 function setup(id){
-  // create editor
-  var editor = ace.edit(id);  
+  // CREATE EDITOR
+  var editor = ace.edit(id+'_ace');  
 
-  // add hook 
+  // ADD HOOK 
   // before any save occurs, put content back into textarea
   editor.on('blur', function(e) {
     $($('#'+editor.container.id).data('for')).val(editor.getValue());
   });
 
-  // set settings (whoa!)
-  editor.setTheme("ace/theme/twilight");
-  editor.getSession().setMode("ace/mode/html");
+  // SETTINGS
+  // configurable
+  editor.getSession().setMode("ace/mode/"+config[id].mode);
+
+  // non-configurable
+  editor.setTheme("ace/theme/xcode");
+  editor.setShowPrintMargin(false);
+  editor.setShowInvisibles(true);
+  editor.setFontSize('18px');
+  editor.renderer.setShowGutter(false);
+  editor.getSession().setUseWrapMode(true);
+  editor.getSession().setWrapLimitRange(null);
+
+  return editor;
 }

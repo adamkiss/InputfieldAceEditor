@@ -6,6 +6,11 @@
 class InputfieldAceEditor extends InputfieldTextarea {
 
 	private $path = false;
+	protected $modes = array(
+		'html'=>'HTML',
+		'textile'=>'Textile',
+		'markdown'=>'Markdown'
+	);
 	protected $defaults = array(
 		'mode'=>'html'
 	);
@@ -13,7 +18,7 @@ class InputfieldAceEditor extends InputfieldTextarea {
 	public static function getModuleInfo() {
 		return array(
 			'title' => 'Ace Editor',
-			'version' => 001,
+			'version' => 60,
 			'summary' => 'Better ProcessWire text editor for developers and at least ‘a little’ tech savvy clients',
 			'permanent' => true, 
 			);
@@ -40,60 +45,12 @@ class InputfieldAceEditor extends InputfieldTextarea {
 		}
 		$this->config->js($this->className(), $ace_fields);
 
-		// $config = $this->defaults;
+		// set options of this field
+		$field_config = array(
+			'mode' => $this->get('mode')
+		);
+		$this->config->js($this->attr('id'), $field_config);
 
-		// foreach($config as $key => $unused) $config[$key] = $this->get($key); 
-
-		// if(empty($config['content_css'])) unset($config['content_css']); 
-		// 	else $config['content_css'] = $this->config->urls->root . ltrim($config['content_css'], '/'); 
-
-		// if(!empty($config['custom'])) {
-		// 	$custom = explode("\n", $config['custom']); 
-		// 	foreach($custom as $line) {
-		// 		if(empty($line)) continue; 
-		// 		$pos = strpos($line, ':'); 
-		// 		$key = trim(substr($line, 0, $pos)); 
-		// 		$value = trim(substr($line, $pos+1)); 
-
-		// 		// @soma--> is it a setting with a path like /site/... 
-		// 		if(substr($value, 0, 1) == '/') $value = $this->config->urls->root . substr($value, 1);
-		// 		// <--@soma
-
-		// 		if(!isset($config[$key])) $config[$key] = $value; 	
-		// 	}
-		// }
-		// unset($config['custom']); 
-
-		// $this->config->js($this->attr('id'), $config); 
-
-		// $config = $this->config->js($this->className()); 
-		// if(is_null($config)) $config = array();
-
-		// // 'elements' is a tinymce config option, we're using the same terminology for consistency
-		// if(!isset($config['elements'])) $config['elements'] = array(); 
-
-		// $config['elements'][] = $this->attr('id'); 
-		// $config['url'] = $this->config->urls->InputfieldTinyMCE; 
-		// $config['language'] = $this->_('en'); // TinyMCE language code (2 character lowercase) // Enter: cs, da, de, en, es, fi, fr, hr, it, nl, no, pt, ro, ru, sk, sl, sv, uk. If your language isn't there, ask us to add it. We will if TinyMCE has it: http://www.tinymce.com/i18n
-
-		// $cancelButtonLabel = $this->_('Cancel'); // Cancel button label
-
-		// $config['pwlink'] = array(
-		// 	'label' => $this->_('Insert Link'), // Insert link label, window headline and button text
-		// 	'cancel' => $cancelButtonLabel,
-		// 	);
-
-		// $config['pwimage'] = array(
-		// 	'selectLabel' => $this->_('Select Image'), 
-		// 	'editLabel' => $this->_('Edit Image'),
-		// 	'savingNote' => $this->_('Saving Image'),
-		// 	'cancelBtn' => $cancelButtonLabel,
-		// 	'insertBtn' => $this->_('Insert This Image'), 	
-		// 	'selectBtn' => $this->_('Select Another Image'),
-		// 	);
-
-		// $this->config->js($this->className(), $config); 
-		
 		return parent::___render();
 	}
 
@@ -105,51 +62,24 @@ class InputfieldAceEditor extends InputfieldTextarea {
 	public function ___getConfigInputfields() {
 		$inputfields = parent::___getConfigInputfields();
 
-		// $wrapper = $this->modules->get('InputfieldFieldset'); 
-		// $wrapper->label = $this->_('TinyMCE Advanced Configuration Options'); 
-		// $wrapper->description = $this->_('The following fields are specific to TinyMCE and details about these options can be found at the TinyMCE web site. In general it is best to use the defaults presented here unless you are familiar with TinyMCE configuration.'); // Description for TinyMCE custom config fields
-		// $wrapper->collapsed = Inputfield::collapsedYes; 
+		$wrapper = $this->modules->get('InputfieldFieldset'); 
+		$wrapper->label = $this->_('ACE Editor configuration'); 
+		$wrapper->description = $this->_('The following fields are specific to ACE Editor, field settings and look of the editor.');
+		$wrapper->collapsed = Inputfield::collapsedNo; 
 
-		// foreach($this->defaults as $key => $unused) {
-		// 	if($key == 'content_css' || $key == 'custom' || $key == 'thirdparty') continue; 
-		// 	$value = $this->get($key); 
-		// 	$field = $this->modules->get((strlen($value) > 150 ? 'InputfieldTextarea' : 'InputfieldText')); 
-		// 	$field->attr('name', $key); 
-		// 	$field->attr('maxlength', 4096); 
-		// 	$field->attr('value', $this->get($key)); 
-		// 	$wrapper->append($field);
-		// }
+		// mode (for versions < 3)
+		$value = $this->get('mode');
+		$field = $this->modules->get('InputfieldSelect');
+		$field->attr('name', 'mode');
+		$field->label='ACE Editor Mode';
+		$field->description=_('This is the syntax mode you use in this field.');
+		foreach($this->modes as $mode=>$label){
+			$selected = ($value===$mode) ? array('selected'=>'selected') : null;
+			$field->addOption($mode, $label, $selected);
+		}
+		$wrapper->append($field); unset($field);
 
-		// $field = $this->modules->get("InputfieldText"); 
-		// $field->label = "content_css"; 
-		// $field->description = $this->_("Optionally specify a content.css file URL (relative to your site root) and TinyMCE will use this file for its 'content_css' option rather than the default one in /wire/modules/Inputfield/InputfieldTinyMCE/content.css. Note that your content.css should also include the styles from the default one: .align_left, .align_right, and .align_center"); // content_css field description
-		// $field->notes = $this->_('Example: /site/templates/styles/content.css'); 
-		// $field->attr('name', 'content_css'); 
-		// $value = $this->get('content_css'); 
-		// $field->attr('value', $value); 
-		// $wrapper->append($field); 
-
-		// $field = $this->modules->get("InputfieldTextarea"); 
-		// $field->attr('name', 'custom'); 
-		// $field->label = $this->_('Additional TinyMCE settings'); 
-		// $field->description = $this->_('If there are other TinyMCE settings (not covered above) that you want to specify, enter them one-per-line in a key:value format.'); 
-		// $field->notes = $this->_('Example: theme_advanced_styles:Header 1=header1;Header 2=header2;Header 3=header3;Table Row=tableRow1'); 
-		// $field->attr('value', $this->get('custom')); 
-		// $wrapper->append($field); 
-
-		// // @soma-->
-		// $field = $this->modules->get("InputfieldTextarea"); 
-		// $field->label = "Third-party plugins"; 
-		// $field->description = $this->_("Optionally add custom third-party TinyMCE plugins. Specify them one-per-line in a key:value format, where key is the name of the plugin and the value is the path to the plugin."); // content_css field description
-		// $field->notes = $this->_('Example: bramus_cssextras : /site/tinymce/myplugins/bramus_cssextras'); 
-		// $field->attr('name', 'thirdparty'); 
-		// $value = $this->get('thirdparty'); 
-		// $field->attr('value', $value); 
-		// $wrapper->append($field); 
-		// // <--@soma
-
-		// $inputfields->append($wrapper); 
-
+		$inputfields->append($wrapper);
 		return $inputfields; 
 	}
 }
