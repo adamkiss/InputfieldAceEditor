@@ -12,7 +12,8 @@ class InputfieldAceEditor extends InputfieldTextarea {
 		'markdown'=>'Markdown'
 	);
 	protected $defaults = array(
-		'mode'=>'html'
+		'mode'=>'html',
+		'focus_mode'=>false
 	);
 
 	public static function getModuleInfo() {
@@ -48,6 +49,7 @@ class InputfieldAceEditor extends InputfieldTextarea {
 		// set options of this field
 		$field_config = array(
 			'mode' => $this->get('mode'),
+			'focus_mode' => $this->get('focus_mode'),
 			'rows' => $this->get('rows')
 		);
 		$this->config->js($this->attr('id'), $field_config);
@@ -78,6 +80,15 @@ class InputfieldAceEditor extends InputfieldTextarea {
 			$selected = ($value===$mode) ? array('selected'=>'selected') : null;
 			$field->addOption($mode, $label, $selected);
 		}
+		$wrapper->append($field); unset($field);
+
+		// focus mode?
+		$value = $this->get('focus_mode');
+		$field = $this->modules->get('InputfieldCheckbox');
+		$field->attr('name', 'focus_mode');
+		$field->label='Use focus mode';
+		$field->description=_('Dims all but currently active line');
+		$field->attr('checked',$value);
 		$wrapper->append($field); unset($field);
 
 		$inputfields->append($wrapper);

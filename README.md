@@ -1,9 +1,11 @@
-ACE Editor v0.9 beta
-===============
+ACE Editor v0.9.5 beta
+=======================
 
 ## What is this?
 
-Better ProcessWire text editor for developers and at least 'a little' tech savvy clients.
+**Better** ProcessWire text editor for developers and at least 'a little' tech savvy clients.
+
+![Screenshot](//github.com/adamkiss/InputfieldAceEditor/blob/master/screenshot.png)
 
 ## How to use
 
@@ -13,6 +15,11 @@ Better ProcessWire text editor for developers and at least 'a little' tech savvy
 4. Profit
 
 ## Changelog
+
+### v0.9.5
+
+* Added focus mode
+* blast! unfocused lines are only 40% opacity (instead 70%)
 
 ### v0.9
 

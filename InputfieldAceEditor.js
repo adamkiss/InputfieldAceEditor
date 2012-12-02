@@ -28,6 +28,7 @@ function duplicate(id){
       .data('for', '#'+id)
       .insertAfter($acetools)
       .text($textarea.val()); 
+  if (config[id].focus_mode===1) $ace.addClass('focus-mode');
   return id+'_ace'; 
 }
 

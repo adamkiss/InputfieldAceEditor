@@ -100,6 +100,6 @@
 .ace-pw-light .ace_marker-layer .ace_selection {
   background: rgba(102, 72, 42, 0.15); }
 .ace-pw-light.focus-mode .ace_line_group .ace_line {
-  opacity: 0.7; }
+  opacity: 0.4; }
 .ace-pw-light.focus-mode .ace_line_group_active .ace_line {
   opacity: 1; }
