@@ -1,4 +1,4 @@
-ACE Editor v0.9.5 beta
+ACE Editor v0.9.6 beta
 =======================
 
 ## What is this?
@@ -7,19 +7,13 @@ ACE Editor v0.9.5 beta
 
 ![Screenshot](https://raw.github.com/adamkiss/InputfieldAceEditor/master/screenshot.png)
 
-## How to use
-
-1. Install
-2. Set your HTML/Textile/Markdown fields to use this Inputfield
-3. Set correct mode to each of your fields
-4. Profit
-
 ## Changelog
 
-### v0.9.5
+### v0.9.6
 
 * Added focus mode
 * blast! unfocused lines are only 40% opacity (instead 70%)
+* v0.9.6 – Fixed readme, bumped version, better screenshot
 
 ### v0.9
 
@@ -64,15 +58,17 @@ ACE Editor v0.9.5 beta
 * ~~iA writer's blue cursor :)~~ – – done in **v0.8**
 * Focus mode
 
-### Planned for v3.0
+### Would like to add in future
 
+* Fullscreen
+* Automatic mode detection
+* Toolbar with basic tags (really)
 * HTML+Tags support
 * Textile+Tags support
 * Markdown+Tags support
-* Automatic mode detection
-* Toolbar with basic tags (really)
-* Help inline
-* Fullscreen
+* Inline help
 
 ---
+
 Created in 2012 by Adam Kiss • Licensed under WTFPL (http://sam.zoy.org/wtfpl/)
+Built on ACE – https://github.com/ajaxorg/ace, so all the legal mumbo-jumbo and credit goes to people that helped built it. Except the details I made better, those are all mine.
