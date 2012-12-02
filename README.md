@@ -5,7 +5,7 @@ ACE Editor v0.9.5 beta
 
 **Better** ProcessWire text editor for developers and at least 'a little' tech savvy clients.
 
-![Screenshot](//github.com/adamkiss/InputfieldAceEditor/blob/master/screenshot.png)
+![Screenshot](https://github.com/adamkiss/InputfieldAceEditor/blob/master/screenshot.png)
 
 ## How to use
 
