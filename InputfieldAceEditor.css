@@ -34,6 +34,8 @@
 .ace-editor-design-wrapper .ace_editor {
   overflow: visible;
   position: relative; }
+.ace-editor-design-wrapper .ace_text-layer {
+  padding-right: 0 !important; }
 .ace-editor-design-wrapper .ace_fold-widget {
   width: 12px; }
 .ace-editor-design-wrapper .ace_scrollbar {
@@ -47,6 +49,9 @@
 
 .ace_emphasis {
   font-family: "LuxiMonoOblique"; }
+
+.ace_url {
+  text-decoration: underline; }
 
 .setting-size-normal .hack_ace_measure_node,
 .setting-size-normal .ace_line {
@@ -72,6 +77,14 @@
 .ace-pw-light .ace_list {
   color: rgba(16, 122, 190, 0.9); }
 .ace-pw-light .ace_underline {
+  color: rgba(102, 72, 42, 0.8); }
+.ace-pw-light .ace_tag, .ace-pw-light .ace_operator {
+  color: rgba(16, 122, 190, 0.3); }
+  .ace-pw-light .ace_tag.ace_tag-name, .ace-pw-light .ace_operator.ace_tag-name {
+    color: rgba(16, 122, 190, 0.8); }
+.ace-pw-light .ace_attribute-name {
+  color: rgba(16, 122, 190, 0.8); }
+.ace-pw-light .ace_attribute-value {
   color: rgba(102, 72, 42, 0.8); }
 .ace-pw-light .ace_invisible {
   color: rgba(55, 60, 65, 0.2); }
