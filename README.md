@@ -49,12 +49,13 @@ Better ProcessWire text editor for developers and at least 'a little' tech savvy
 * ~~Textile support~~ – done in **v0.6**
 * ~~Markdown suport~~ – done in **v0.6**
 * ~~support for custom font-sizes~~ – done in **v0.7**
-* Nice light color scheme/code formatting for writers
-	* for HTML
+* ~~Nice light color scheme/code formatting for writers~~
+	* ~~for HTML~~ – done in **v0.9**
 	* Textile
-	* Markdown
-* proper sizing
-* iA writer's blue cursor :)
+	* ~~Markdown~~ – done in **v0.8**
+* ~~proper sizing~~ – – done in **v0.7**
+* ~~iA writer's blue cursor :)~~ – – done in **v0.8**
+* Focus mode
 
 ### Planned for v3.0
 
