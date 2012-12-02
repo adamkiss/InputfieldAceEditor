@@ -9,6 +9,10 @@ ACE Editor v0.9.6 beta
 
 ## Changelog
 
+### v0.9.7
+
+* fix/enhancement – added minimal version check to module, which halts install for unsupported versions
+
 ### v0.9.6
 
 * Added focus mode

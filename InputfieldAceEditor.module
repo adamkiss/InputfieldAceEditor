@@ -19,7 +19,7 @@ class InputfieldAceEditor extends InputfieldTextarea {
 	public static function getModuleInfo() {
 		return array(
 			'title' => 'Ace Editor',
-			'version' => 96,
+			'version' => 97,
 			'summary' => 'Better ProcessWire text editor for developers and at least ‘a little’ tech savvy clients',
 			'permanent' => true, 
 			);
@@ -93,6 +93,12 @@ class InputfieldAceEditor extends InputfieldTextarea {
 
 		$inputfields->append($wrapper);
 		return $inputfields; 
+	}
+
+	public function ___install() {
+		if(ProcessWire::versionMajor == 2 && ProcessWire::versionMinor < 2) {
+			throw new WireException("This module requires ProcessWire 2.2 or newer"); 
+		}
 	}
 
 	private function return_html($textarea) {
