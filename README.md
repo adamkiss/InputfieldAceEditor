@@ -1,4 +1,4 @@
-ACE Editor v0.7.1
+ACE Editor v0.9 beta
 ===============
 
 ## What is this?
@@ -13,6 +13,18 @@ Better ProcessWire text editor for developers and at least 'a little' tech savvy
 4. Profit
 
 ## Changelog
+
+### v0.9
+
+* added HTML theme support
+* added better tag parsing
+* added underlining for URLs in tags (href, src, …)
+
+### v0.8
+
+* added Markdown theme support
+* added better handling of bold/emphasis/list elements
+* vastly improved url/image syntax highlighting
 
 ### v0.7
 
