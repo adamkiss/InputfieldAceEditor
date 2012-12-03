@@ -28,7 +28,6 @@ function duplicate(id){
       .data('for', '#'+id)
       .insertAfter($acetools)
       .text($textarea.val()); 
-  if (config[id].focus_mode===1) $ace.addClass('focus-mode');
   return id+'_ace'; 
 }
 
@@ -48,6 +47,13 @@ function setup(id){
       .height(config[id].rows * _line_height)
     editor.setTheme("ace/theme/pw-light");
 
+    // look and feel
+    // invisible characters
+    editor.setShowInvisibles(config[id].f_invisible_characters);
+
+    // focus mode
+    if (config[id].f_focus_mode===1) $editor.addClass('focus-mode');
+
   // non-configurable
     // add class to hack custom font/size/line-height
     $measure_node.addClass('hack_ace_measure_node');
@@ -58,7 +64,6 @@ function setup(id){
     
     // look and feel
     editor.setShowPrintMargin(false);
-    editor.setShowInvisibles(true);
     editor.renderer.setShowGutter(true);
     editor.setSelectionStyle('text');
     editor.setShowFoldWidgets(true);

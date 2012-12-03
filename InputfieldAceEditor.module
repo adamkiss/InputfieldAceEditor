@@ -13,7 +13,8 @@ class InputfieldAceEditor extends InputfieldTextarea {
 	);
 	protected $defaults = array(
 		'mode'=>'html',
-		'focus_mode'=>false
+		'feature_focus_mode'=>false,
+		'feature_invisible_characters'=>0
 	);
 
 	public static function getModuleInfo() {
@@ -49,8 +50,9 @@ class InputfieldAceEditor extends InputfieldTextarea {
 		// set options of this field
 		$field_config = array(
 			'mode' => $this->get('mode'),
-			'focus_mode' => $this->get('focus_mode'),
-			'rows' => $this->get('rows')
+			'rows' => $this->get('rows'),
+			'f_focus_mode' => $this->get('feature_focus_mode'),
+			'f_invisible_characters' => $this->get('feature_invisible_characters')
 		);
 		$this->config->js($this->attr('id'), $field_config);
 
@@ -83,11 +85,20 @@ class InputfieldAceEditor extends InputfieldTextarea {
 		$wrapper->append($field); unset($field);
 
 		// focus mode?
-		$value = $this->get('focus_mode');
+		$value = $this->get('feature_focus_mode');
 		$field = $this->modules->get('InputfieldCheckbox');
-		$field->attr('name', 'focus_mode');
+		$field->attr('name', 'feature_focus_mode');
 		$field->label='Use focus mode';
 		$field->description=_('Dims all but currently active line');
+		$field->attr('checked',$value);
+		$wrapper->append($field); unset($field);
+
+		// invisible characters
+		$value = $this->get('feature_invisible_characters');
+		$field = $this->modules->get('InputfieldCheckbox');
+		$field->attr('name', 'feature_invisible_characters');
+		$field->label='Show invisible characters';
+		$field->description=_('Show non-printable characters like tabs or new line characters');
 		$field->attr('checked',$value);
 		$wrapper->append($field); unset($field);
 
