@@ -6,8 +6,9 @@
 // Note: Xl = light color, where X = b-background, t-text, p-primary, s-secondary
 .light.ace-editor-position-wrapper
   background: c(bl,1)
-  .ace_marker-layer
-    box-shadow: inset 0 2px 5px c(bl,1), inset 0 -2px 5px c(bl,1)
+  .ace_scroller
+    &, &.ace_scroll-left, &.ace_scroll-right
+      box-shadow: inset 0 2px 5px c(bl,1), inset 0 -2px 5px c(bl,1)
 
 .ace-pw-light
 
