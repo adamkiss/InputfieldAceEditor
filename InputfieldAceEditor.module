@@ -13,16 +13,15 @@ class InputfieldAceEditor extends InputfieldTextarea {
 	);
 	protected $defaults = array(
 		'mode'=>'html',
-		'feature_focus_mode'=>false,
-		'feature_invisible_characters'=>0
+		'feature_focus_mode'=>0,
+		'feature_invisible_characters'=>1
 	);
 
 	public static function getModuleInfo() {
 		return array(
 			'title' => 'Ace Editor',
-			'version' => 97,
-			'summary' => 'Better ProcessWire text editor for developers and at least ‘a little’ tech savvy clients',
-			'permanent' => true, 
+			'version' => 98,
+			'summary' => 'Better ProcessWire text editor for developers and at least ‘a little’ tech savvy clients'
 			);
 	}
 

@@ -1,4 +1,4 @@
-ACE Editor v0.9.6 beta
+ACE Editor v0.9.8 beta
 =======================
 
 ## What is this?
@@ -8,6 +8,12 @@ ACE Editor v0.9.6 beta
 ![Screenshot](https://raw.github.com/adamkiss/InputfieldAceEditor/master/screenshot.png)
 
 ## Changelog
+
+### v0.9.8
+
+* [add] Added 'Show invisible characters as an option (on by default)'
+* [enh] Manned up feature programming
+* [fix] removed permanent option
 
 ### v0.9.7
 
