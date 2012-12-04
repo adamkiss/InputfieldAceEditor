@@ -7,9 +7,21 @@ ACE Editor v1.0.0
 
 ![Screenshot](https://raw.github.com/adamkiss/InputfieldAceEditor/master/screenshot.png)
 
+## Features
+
+* Syntax highlight your text, for easier preparation of content
+* Nice light, readable theme
+* Supports Textile, Markdown & HTML
+* Works with multiple fields on page, each with different settings
+
+### Features inspired by [iA writer](http://www.iawriter.com/)
+
+* Blue Cursor
+* Focus mode
+
 ## Changelog
 
-### v1.0.0
+### v1.0.0 (December 5th, 2012)
 
 * [add] Added Textile mode, with huge number of enhancements
 * [add] Added auto mode select (yes!)
@@ -61,27 +73,9 @@ ACE Editor v1.0.0
 * Textarea callback
 * This Inputfield is now configurable
 
-## Roadmap (future features)
-
-### Planned for v1.0
-
-* ~~Support for multiple fields~~ – done in **v0.2**
-* ~~HTML Support~~ – done in **v0.6**
-* ~~Textile support~~ – done in **v0.6**
-* ~~Markdown suport~~ – done in **v0.6**
-* ~~support for custom font-sizes~~ – done in **v0.7**
-* ~~Nice light color scheme/code formatting for writers~~
-	* ~~for HTML~~ – done in **v0.9**
-	* Textile
-	* ~~Markdown~~ – done in **v0.8**
-* ~~proper sizing~~ – – done in **v0.7**
-* ~~iA writer's blue cursor :)~~ – – done in **v0.8**
-* Focus mode
-
-### Would like to add in future
+## Possible future features
 
 * Fullscreen
-* Automatic mode detection
 * Toolbar with basic tags (really)
 * HTML+Tags support
 * Textile+Tags support
@@ -91,4 +85,5 @@ ACE Editor v1.0.0
 ---
 
 Created in 2012 by Adam Kiss • Licensed under WTFPL (http://sam.zoy.org/wtfpl/)
-Built on ACE – https://github.com/ajaxorg/ace, so all the legal mumbo-jumbo and credit goes to people that helped built it. Except the details I made better, those are all mine.
+
+Built on [ACE](https://github.com/ajaxorg/ace), so all the legal mumbo-jumbo and credit goes to people that helped built it. Except the details I made better, those are all mine.
