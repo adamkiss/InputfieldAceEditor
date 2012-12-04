@@ -16,10 +16,8 @@
   .ace_line
     color: c(tl,1)
 
-  .ace_heading
-    color: c(tl, .8)
-    &.ace_2
-      color: c(pl, .7)
+  .ace_heading, .ace_keyword
+    color: c(pl, .8)
 
   .ace_bold, .ace_emphasis
     color: c(tl, .9)
@@ -32,6 +30,12 @@
 
   .ace_underline
     color: c(pl,.8)
+
+  .ace_code, .ace_quote
+    color: c(tl,.75)
+
+  .ace_sup, .ace_sub
+    color: c(sl,.6)
 
   // html
   .ace_tag, .ace_operator

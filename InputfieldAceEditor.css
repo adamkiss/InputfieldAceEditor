@@ -47,11 +47,20 @@
 .ace_bold, .ace_heading {
   font-family: "LuxiMonoBold"; }
 
-.ace_emphasis {
+.ace_emphasis, .ace_cite, .ace_quote {
   font-family: "LuxiMonoOblique"; }
 
-.ace_url {
+.ace_url, .ace_underline, .ace_ins {
   text-decoration: underline; }
+
+.ace_del {
+  text-decoration: line-through; }
+
+.ace_sup {
+  vertical-align: sup; }
+
+.ace_sub {
+  vertical-align: sub; }
 
 .setting-size-normal .hack_ace_measure_node,
 .setting-size-normal .ace_line {
@@ -66,10 +75,8 @@
 
 .ace-pw-light .ace_line {
   color: #373c41; }
-.ace-pw-light .ace_heading {
-  color: rgba(55, 60, 65, 0.8); }
-  .ace-pw-light .ace_heading.ace_2 {
-    color: rgba(102, 72, 42, 0.7); }
+.ace-pw-light .ace_heading, .ace-pw-light .ace_keyword {
+  color: rgba(102, 72, 42, 0.8); }
 .ace-pw-light .ace_bold, .ace-pw-light .ace_emphasis {
   color: rgba(55, 60, 65, 0.9); }
 .ace-pw-light .ace_modifier {
@@ -78,6 +85,10 @@
   color: rgba(16, 122, 190, 0.9); }
 .ace-pw-light .ace_underline {
   color: rgba(102, 72, 42, 0.8); }
+.ace-pw-light .ace_code, .ace-pw-light .ace_quote {
+  color: rgba(55, 60, 65, 0.75); }
+.ace-pw-light .ace_sup, .ace-pw-light .ace_sub {
+  color: rgba(16, 122, 190, 0.6); }
 .ace-pw-light .ace_tag, .ace-pw-light .ace_operator {
   color: rgba(16, 122, 190, 0.3); }
   .ace-pw-light .ace_tag.ace_tag-name, .ace-pw-light .ace_operator.ace_tag-name {
