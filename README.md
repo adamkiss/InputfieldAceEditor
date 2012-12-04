@@ -1,4 +1,4 @@
-ACE Editor v0.9.8 beta
+ACE Editor v1.0.0
 =======================
 
 ## What is this?
@@ -8,6 +8,16 @@ ACE Editor v0.9.8 beta
 ![Screenshot](https://raw.github.com/adamkiss/InputfieldAceEditor/master/screenshot.png)
 
 ## Changelog
+
+### v1.0.0
+
+* [add] Added Textile mode, with huge number of enhancements
+* [add] Added auto mode select (yes!)
+* [add] Added PHP mode, even though there are no means to invoke that yet
+* [enh] Enhanced quote rendering in markdown
+* [enh] Added many styles (sup,sub,cite,code,ins,del,…)
+* [fix] Fixed the default values (and saving the default values)
+* [cng] Show invisibles is off as default
 
 ### v0.9.8
 

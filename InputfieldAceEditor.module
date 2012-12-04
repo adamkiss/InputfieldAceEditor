@@ -12,15 +12,15 @@ class InputfieldAceEditor extends InputfieldTextarea {
 		'markdown'=>'Markdown'
 	);
 	protected $defaults = array(
-		'mode'=>'html',
+		'force_mode'=>false,
 		'feature_focus_mode'=>false,
 		'feature_invisible_characters'=>false
 	);
 
 	public static function getModuleInfo() {
 		return array(
-			'title' => 'Ace Editor',
-			'version' => 98,
+			'title' => 'ACE Editor',
+			'version' => 100,
 			'summary' => 'Better ProcessWire text editor for developers and at least ‘a little’ tech savvy clients'
 			);
 	}
@@ -48,7 +48,7 @@ class InputfieldAceEditor extends InputfieldTextarea {
 
 		// set options of this field
 		$field_config = array(
-			'mode' => $this->get('mode'),
+			'mode' => $this->find_mode(),
 			'rows' => $this->get('rows'),
 			'f_focus_mode' => $this->get('feature_focus_mode'),
 			'f_invisible_characters' => $this->get('feature_invisible_characters')
@@ -66,22 +66,13 @@ class InputfieldAceEditor extends InputfieldTextarea {
 	public function ___getConfigInputfields() {
 		$inputfields = parent::___getConfigInputfields();
 
+		//
+		// Visual features
+		//
 		$wrapper = $this->modules->get('InputfieldFieldset'); 
-		$wrapper->label = $this->_('ACE Editor configuration'); 
-		$wrapper->description = $this->_('The following fields are specific to ACE Editor, field settings and look of the editor.');
+		$wrapper->label = $this->_('ACE Editor: Visual features'); 
+		$wrapper->description = $this->_('Visual features of ACE Editor, such as invisible characters or focus mode');
 		$wrapper->collapsed = Inputfield::collapsedNo; 
-
-		// mode (for versions < 3)
-		$value = $this->get('mode');
-		$field = $this->modules->get('InputfieldSelect');
-		$field->attr('name', 'mode');
-		$field->label='ACE Editor Mode';
-		$field->description=_('This is the syntax mode you use in this field.');
-		foreach($this->modes as $mode=>$label){
-			$selected = ($value===$mode) ? array('selected'=>'selected') : null;
-			$field->addOption($mode, $label, $selected);
-		}
-		$wrapper->append($field); unset($field);
 
 		// focus mode?
 		$value = $this->get('feature_focus_mode');
@@ -102,6 +93,23 @@ class InputfieldAceEditor extends InputfieldTextarea {
 		$wrapper->append($field); unset($field);
 
 		$inputfields->append($wrapper);
+
+		//
+		// Functional features (force mode)
+		//
+		// implement later
+		//
+		// mode (for versions < 3)
+		// $value = $this->get('mode');
+		// $field = $this->modules->get('InputfieldSelect');
+		// $field->attr('name', 'mode');
+		// $field->label='ACE Editor Mode';
+		// $field->description=_('This is the syntax mode you use in this field.');
+		// foreach($this->modes as $mode=>$label){
+		// 	$selected = ($value===$mode) ? array('selected'=>'selected') : null;
+		// 	$field->addOption($mode, $label, $selected);
+		// }
+		// $wrapper->append($field); unset($field);
 		return $inputfields; 
 	}
 
@@ -109,6 +117,19 @@ class InputfieldAceEditor extends InputfieldTextarea {
 		if(ProcessWire::versionMajor == 2 && ProcessWire::versionMinor < 2) {
 			throw new WireException("This module requires ProcessWire 2.2 or newer"); 
 		}
+	}
+
+	private function find_mode() {
+		$field = wire('fields')->get($this->attr('name'));
+		$mode  = 'html';
+		if($field->textformatters)
+			foreach($field->textformatters as $class_name) {
+				if ((preg_match('/textile|markdown/i', $class_name, $matches)) === 1) {
+					$mode = strtolower($matches[0]);
+					continue;
+				}
+			}
+		return $mode;
 	}
 
 	private function return_html($textarea) {
