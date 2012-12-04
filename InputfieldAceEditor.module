@@ -13,8 +13,8 @@ class InputfieldAceEditor extends InputfieldTextarea {
 	);
 	protected $defaults = array(
 		'mode'=>'html',
-		'feature_focus_mode'=>0,
-		'feature_invisible_characters'=>1
+		'feature_focus_mode'=>false,
+		'feature_invisible_characters'=>false
 	);
 
 	public static function getModuleInfo() {
