@@ -12,6 +12,7 @@ ACE Editor v1.0.0
 * Syntax highlight your text, for easier preparation of content
 * Nice light, readable theme
 * Supports Textile, Markdown & HTML
+* Mode (language/syntax) is autoselected based on used field's textformatters (last is used)
 * Works with multiple fields on page, each with different settings
 
 ### Features inspired by [iA writer](http://www.iawriter.com/)
