@@ -35,16 +35,29 @@ class Editor
     @ace.setShowFoldWidgets true
     @ace.setHighlightActiveLine false
 
+    @drop_target = $('#wrap_Inputfield_images .ui-widget-content').get(0)
+
     @setup_hooks()
 
 
-  setup_hooks: ->
-
+  setup_hooks: =>
     @ace.on 'blur', (e) =>
       @$textarea.val @ace.getValue().replace /\s+$/g, ""
 
     @ace.on 'changeSelection', (e) =>
       @highlight_active_line
+
+    @ace.container.addEventListener 'drop', (e) =>
+      # this is super crude
+      dropEvt = document.createEvent "Event"
+      dropEvt.initEvent "drop", true, true
+      dropEvt.dataTransfer = e.dataTransfer
+      @drop_target.dispatchEvent dropEvt
+
+      e.preventDefault()
+      e.stopPropagation()
+
+    true
 
 
   @get_active_line_index: ->
