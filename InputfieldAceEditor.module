@@ -48,6 +48,7 @@ class InputfieldAceEditor extends InputfieldTextarea {
 
 		// set options of this field
 		$field_config = array(
+			'id' => $this->attr('id'),
 			'mode' => $this->find_mode(),
 			'rows' => $this->get('rows'),
 			'f_focus_mode' => $this->get('feature_focus_mode'),
