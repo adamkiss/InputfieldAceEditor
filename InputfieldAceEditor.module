@@ -80,7 +80,7 @@ class InputfieldAceEditor extends InputfieldTextarea {
 		$field = $this->modules->get('InputfieldCheckbox');
 		$field->attr('name', 'feature_focus_mode');
 		$field->label='Use focus mode';
-		$field->description=_('Dims all but currently active line');
+		$field->description=$this->_('Dims all but currently active line');
 		$field->attr('checked',$value);
 		$wrapper->append($field); unset($field);
 
@@ -89,7 +89,7 @@ class InputfieldAceEditor extends InputfieldTextarea {
 		$field = $this->modules->get('InputfieldCheckbox');
 		$field->attr('name', 'feature_invisible_characters');
 		$field->label='Show invisible characters';
-		$field->description=_('Show non-printable characters like tabs or new line characters');
+		$field->description=$this->_('Show non-printable characters like tabs or new line characters');
 		$field->attr('checked',$value);
 		$wrapper->append($field); unset($field);
 
