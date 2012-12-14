@@ -58,7 +58,6 @@ class Editor
       e.preventDefault()
       e.stopPropagation()
 
-
   @get_active_line_index: ->
     @ace.getCursorPosition().row - @ace.getFirstVisibleRow()
 
@@ -70,7 +69,6 @@ class Editor
 
   highlight_active_line: ->
     @highlight_line @get_active_line_index()
-
 
   file_name_to_path: (filename) =>
       sanitized_name = filename

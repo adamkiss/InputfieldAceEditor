@@ -1,4 +1,4 @@
-ACE Editor v1.0.0
+ACE Editor v1.0.1
 =======================
 
 ## What is this?
@@ -20,7 +20,17 @@ ACE Editor v1.0.0
 * Blue Cursor
 * Focus mode
 
+## Install Note
+
+This modules' CSS and JS were built using sass and coffee script. If you wish to keep your PW installation as sleek as possible, go ahead and delete _sass and _ace directories from your install. However, those will be (probably) recreated if you upload via Module Manager.
+
 ## Changelog
+
+### v1.0.1 (December 14th, 2012)
+
+* [fix] Bug with internalization (should work now)
+* [enh] Changed background slightly
+* [int] Recoded everything in coffee script
 
 ### v1.0.0 (December 5th, 2012)
 
