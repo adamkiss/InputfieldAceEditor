@@ -53,11 +53,10 @@ class Editor
       dropEvt.initEvent "drop", true, true
       dropEvt.dataTransfer = e.dataTransfer
       @drop_target.dispatchEvent dropEvt
+      @insert_files(e.dataTransfer.files)
 
       e.preventDefault()
       e.stopPropagation()
-
-    true
 
 
   @get_active_line_index: ->
@@ -71,3 +70,27 @@ class Editor
 
   highlight_active_line: ->
     @highlight_line @get_active_line_index()
+
+
+  file_name_to_path: (filename) =>
+      sanitized_name = filename
+        .replace(/'"/g, "")
+        .replace(/[^a-zA-Z0-9\-]/g, "_")
+        .replace(/[-_.]{2,}/, "-")
+        .replace(/_png$/,'.png')
+        .replace(/_gif$/,'.gif')
+        .replace(/_jpg$/,'.jpg')
+        .toLowerCase()
+      if @config.mode is 'textile'
+        "!/site/assets/files/#{$('#PageIDIndicator').text()}/#{sanitized_name}(alt)!"
+      else
+        "<img alt=\"alt\" src=\"#{sanitized_name}\">"
+
+  insert_files: (files) =>
+    $.each files, (i, el) =>
+      path = @file_name_to_path el.name
+      cursor = @ace.getCursorPosition()
+      console.log @ace
+      console.log cursor
+      @ace.getSession().getDocument().insertInLine cursor, path
+    true

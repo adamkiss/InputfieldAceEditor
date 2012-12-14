@@ -32,6 +32,10 @@
 
     function Editor(config) {
       this.config = config;
+      this.insert_files = __bind(this.insert_files, this);
+
+      this.file_name_to_path = __bind(this.file_name_to_path, this);
+
       this.setup_hooks = __bind(this.setup_hooks, this);
 
       this.setup_html();
@@ -73,16 +77,16 @@
       this.ace.on('changeSelection', function(e) {
         return _this.highlight_active_line;
       });
-      this.ace.container.addEventListener('drop', function(e) {
+      return this.ace.container.addEventListener('drop', function(e) {
         var dropEvt;
         dropEvt = document.createEvent("Event");
         dropEvt.initEvent("drop", true, true);
         dropEvt.dataTransfer = e.dataTransfer;
         _this.drop_target.dispatchEvent(dropEvt);
+        _this.insert_files(e.dataTransfer.files);
         e.preventDefault();
         return e.stopPropagation();
       });
-      return true;
     };
 
     Editor.get_active_line_index = function() {
@@ -95,6 +99,29 @@
 
     Editor.prototype.highlight_active_line = function() {
       return this.highlight_line(this.get_active_line_index());
+    };
+
+    Editor.prototype.file_name_to_path = function(filename) {
+      var sanitized_name;
+      sanitized_name = filename.replace(/'"/g, "").replace(/[^a-zA-Z0-9\-]/g, "_").replace(/[-_.]{2,}/, "-").replace(/_png$/, '.png').replace(/_gif$/, '.gif').replace(/_jpg$/, '.jpg').toLowerCase();
+      if (this.config.mode === 'textile') {
+        return "!/site/assets/files/" + ($('#PageIDIndicator').text()) + "/" + sanitized_name + "(alt)!";
+      } else {
+        return "<img alt=\"alt\" src=\"" + sanitized_name + "\">";
+      }
+    };
+
+    Editor.prototype.insert_files = function(files) {
+      var _this = this;
+      $.each(files, function(i, el) {
+        var cursor, path;
+        path = _this.file_name_to_path(el.name);
+        cursor = _this.ace.getCursorPosition();
+        console.log(_this.ace);
+        console.log(cursor);
+        return _this.ace.getSession().getDocument().insertInLine(cursor, path);
+      });
+      return true;
     };
 
     return Editor;
