@@ -20,7 +20,7 @@ class InputfieldAceEditor extends InputfieldTextarea {
 	public static function getModuleInfo() {
 		return array(
 			'title' => 'ACE Editor',
-			'version' => 100,
+			'version' => 101,
 			'summary' => 'Better ProcessWire text editor for developers and at least ‘a little’ tech savvy clients'
 			);
 	}
