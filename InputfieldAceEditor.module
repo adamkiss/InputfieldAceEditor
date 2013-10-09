@@ -123,7 +123,7 @@ class InputfieldAceEditor extends InputfieldTextarea {
 	private function find_mode() {
 		$field = wire('fields')->get($this->attr('name'));
 		$mode  = 'html';
-		if($field->textformatters)
+		if($field && $field->textformatters)
 			foreach($field->textformatters as $class_name) {
 				if ((preg_match('/textile|markdown/i', $class_name, $matches)) === 1) {
 					$mode = strtolower($matches[0]);
