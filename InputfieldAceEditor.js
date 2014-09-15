@@ -14,15 +14,12 @@ $(function() {
 				textarea.css("display", "none");
 
 				var editor = ace.edit(editDiv[0]);
-				editor.setTheme("ace/theme/github");
 				editor.setOptions({
 					minLines: c.rows,
 					maxLines: Infinity,
 				});
 				editor.getSession().setMode("ace/mode/"+ c.mode);
 				editor.getSession().setValue(textarea.val());
-
-
 
 				editor.getSession().on("change", function() {
 					textarea.val(editor.getSession().getValue());
