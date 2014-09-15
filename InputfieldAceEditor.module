@@ -29,7 +29,7 @@ class InputfieldAceEditor extends InputfieldTextarea {
 		// set path
 		$this->path = $this->config->urls->InputfieldAceEditor.'ace/';
 		// set config from defaults
-		foreach($this->defaults as $key => $value) $this->set($key, $value); 
+		foreach($this->defaults as $key => $value) $this->set($key, $value);
 		parent::init();
 	}
 
@@ -60,8 +60,8 @@ class InputfieldAceEditor extends InputfieldTextarea {
 	}
 
 	public function setAttribute($key, $value) {
-		if($key != 'value') return parent::setAttribute($key, $value); 
-		return parent::setAttribute($key, $value); 	
+		if($key != 'value') return parent::setAttribute($key, $value);
+		return parent::setAttribute($key, $value);
 	}
 
 	public function ___getConfigInputfields() {
@@ -70,10 +70,10 @@ class InputfieldAceEditor extends InputfieldTextarea {
 		//
 		// Visual features
 		//
-		$wrapper = $this->modules->get('InputfieldFieldset'); 
-		$wrapper->label = $this->_('ACE Editor: Visual features'); 
+		$wrapper = $this->modules->get('InputfieldFieldset');
+		$wrapper->label = $this->_('ACE Editor: Visual features');
 		$wrapper->description = $this->_('Visual features of ACE Editor, such as invisible characters or focus mode');
-		$wrapper->collapsed = Inputfield::collapsedNo; 
+		$wrapper->collapsed = Inputfield::collapsedNo;
 
 		// focus mode?
 		$value = $this->get('feature_focus_mode');
@@ -111,12 +111,12 @@ class InputfieldAceEditor extends InputfieldTextarea {
 		// 	$field->addOption($mode, $label, $selected);
 		// }
 		// $wrapper->append($field); unset($field);
-		return $inputfields; 
+		return $inputfields;
 	}
 
 	public function ___install() {
 		if(ProcessWire::versionMajor == 2 && ProcessWire::versionMinor < 2) {
-			throw new WireException("This module requires ProcessWire 2.2 or newer"); 
+			throw new WireException("This module requires ProcessWire 2.2 or newer");
 		}
 	}
 
