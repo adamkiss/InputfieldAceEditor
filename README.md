@@ -1,11 +1,9 @@
-ACE Editor v1.0.1
+ACE Editor
 =======================
 
 ## What is this?
 
 **Better** ProcessWire text editor for developers and at least 'a little' tech savvy clients.
-
-![Screenshot](https://raw.github.com/adamkiss/InputfieldAceEditor/master/screenshot.png)
 
 ## Features
 
@@ -15,16 +13,14 @@ ACE Editor v1.0.1
 * Mode (language/syntax) is autoselected based on used field's textformatters (last is used)
 * Works with multiple fields on page, each with different settings
 
-### Features inspired by [iA writer](http://www.iawriter.com/)
-
-* Blue Cursor
-* Focus mode
-
 ## Install Note
 
-This modules' CSS and JS were built using sass and coffee script. If you wish to keep your PW installation as sleek as possible, go ahead and delete _sass and _ace directories from your install. However, those will be (probably) recreated if you upload via Module Manager.
-
 ## Changelog
+
+### v1.1.0
+
+* update ACE to v1.1.6
+* refactor
 
 ### v1.0.1 (December 14th, 2012)
 
@@ -97,4 +93,5 @@ This modules' CSS and JS were built using sass and coffee script. If you wish to
 
 Created in 2012 by Adam Kiss • Licensed under WTFPL (http://sam.zoy.org/wtfpl/)
 
-Built on [ACE](https://github.com/ajaxorg/ace), so all the legal mumbo-jumbo and credit goes to people that helped built it. Except the details I made better, those are all mine.
+Built on [ACE](https://github.com/ajaxorg/ace), so all the legal mumbo-jumbo and
+credit goes to people that helped built it. Except the details I made better, those are all mine.
