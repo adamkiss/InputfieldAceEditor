@@ -23,5 +23,12 @@ $(function() {
 				editor.getSession().on("change", function() {
 					textarea.val(editor.getSession().getValue());
 				});
+
+				setTimeout(function() {
+					textarea.parents(".ui-tabs").on("tabsactivate", function(){
+						editor.resize();
+					});
+				}, 0);
+
 			})();
 });
