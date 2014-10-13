@@ -20,6 +20,9 @@ $(function() {
 				});
 				editor.getSession().setMode("ace/mode/"+ c.mode);
 				editor.getSession().setValue(textarea.val());
+				editor.getSession().setUseWrapMode(true);
+				editor.getSession().setTabSize(2);
+				editor.getSession().setWrapLimitRange(80, 80);
 
 				editor.getSession().on("change", function() {
 					textarea.val(editor.getSession().getValue());
