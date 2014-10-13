@@ -23,6 +23,7 @@ $(function() {
 				editor.getSession().setUseWrapMode(true);
 				editor.getSession().setTabSize(2);
 				editor.getSession().setWrapLimitRange(80, 80);
+				editDiv.css({"font-size": "14px"});
 
 				editor.getSession().on("change", function() {
 					textarea.val(editor.getSession().getValue());
