@@ -1,5 +1,9 @@
-ACE Editor v1.0.1
+[🔴DISCONTINUED] ACE Editor v1.0.1
 =======================
+
+## This module is discontinued
+
+You might want to try [InputfieldAceExtended](https://github.com/owzim/pw-inputfield-ace-extended) by owzim instead.
 
 ## What is this?
 
